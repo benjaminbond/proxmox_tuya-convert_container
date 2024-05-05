@@ -5,6 +5,8 @@ set -o errexit  #Exit immediately if a pipeline returns a non-zero status
 set -o errtrace #Trap ERR from shell functions, command substitutions, and commands from subshell
 set -o nounset  #Treat unset variables as an error
 set -o pipefail #Pipe will exit with last non-zero status if applicable
+#set -v          #Print shell input lines as they are read
+set -x          #Print command traces before executing command
 shopt -s expand_aliases
 alias die='EXIT=$? LINE=$LINENO error_exit'
 trap die ERR
