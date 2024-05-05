@@ -163,7 +163,7 @@ mapfile -t TEMPLATES < <(
   sed -n "s/.*\($OSVERSION.*\)/\1/p" | \
   sort -t - -k 2 -V
 )
-TEMPLATE="${TEMPLATES[-1]}"
+TEMPLATE="${TEMPLATES[*]: -1}"
 pveam download local $TEMPLATE >/dev/null ||
   die "A problem occured while downloading the LXC template."
 
